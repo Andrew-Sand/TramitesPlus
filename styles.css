@@ -331,6 +331,7 @@
         position: relative;
         display: inline-block;
         padding-bottom: 0.5rem;
+        display: block
     }
 
     .card h3::after {
