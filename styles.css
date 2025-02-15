@@ -159,8 +159,14 @@
         background: rgba(245, 158, 11, 0.1);
     }
 
+    /* Mejorar accesibilidad */
+    nav a:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 3px;
+    }
+
     .hero {
-        padding: 18rem 2rem 8rem 2rem;
+        padding: 8rem 2rem 4rem 2rem;
         background-image: url(hero.webp);
         background-size: cover;
         background-position: center;
@@ -248,7 +254,7 @@
     }
 
     .servicios {
-        padding: 6rem 2rem;
+        padding: 0rem 2rem;
         max-width: 1400px;
         margin: 0 auto;
     }
@@ -443,21 +449,18 @@
             align-items: center;
             gap: 0;
             height: 100%; /* Ocupa toda la altura del header */
-            padding: 0 1rem; /* Ajuste de padding interno */
+            padding: 0 1.5rem; /* Ajuste de padding interno */
         }
 
         .logo {
-            font-size: 2rem;
-            width: auto; /* Ancho automático para mejor ajuste */
-            justify-content: flex-start; /* Alineación a la izquierda */
+            flex: 1; /* Ocupa espacio disponible */
+            font-size: 1.9rem;
         }
 
         .hamburger {
-            display: flex;
-            margin-top: 0.5rem; /* Espaciado superior para alineación vertical */
-            padding: 0.5rem;
-            height: 100%; /* Ocupa toda la altura disponible */
-            align-items: center; /* Centrado vertical */
+            margin-top: 0; /* Eliminamos margen superior */
+            padding: 0.5rem 0.7rem; /* Ajuste de padding para mejor tacto */
+            height: auto; /* Altura automática para mejor alineación */
         }
 
         nav {
@@ -493,6 +496,11 @@
             border-bottom: 1px solid rgba(245, 158, 11, 0.1);
         }
 
+        nav a:first-child {
+        
+            margin-top: 3rem;
+        
+        }
         nav a:hover {
             background: rgba(245, 158, 11, 0.15);
         }
@@ -683,4 +691,100 @@
     .hero-content a.cta-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .error-message {
+        background: var(--error);
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Mejorar accesibilidad en focus */
+    button:focus, select:focus {
+        outline: 3px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+
+    /* Optimizar móvil */
+    @media (max-width: 480px) {
+        .modal-content {
+            padding: 2rem 1rem;
+            width: 95%;
+        }
+        
+        .close-modal {
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    /* Estilos para el banner de conductores */
+    .banner-conductores {
+        background: linear-gradient(
+            135deg,
+            rgba(245, 158, 11, 0.95) 0%,  /* Usamos el accent-color con transparencia */
+            rgba(245, 158, 11, 0.85) 30%,  /* Variante más clara */
+            rgba(252, 211, 77, 0.9) 100%   /* Tono más claro del gradiente original */
+        );
+        padding: 4rem 2rem;
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(245, 158, 11, 0.3);  /* Borde con accent-color */
+        box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);  /* Sombra con tono ámbar */
+    }
+
+    .banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .banner-conductores h2 {
+        color: var(--primary-color);  /* Cambiamos a color oscuro para mejor contraste */
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);  /* Sombra más suave */
+    }
+
+    .banner-conductores p {
+        color: var(--text-light);
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .banner-conductores {
+            padding: 3rem 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .banner-conductores h2 {
+            font-size: 1.8rem;
+        }
+        
+        .banner-conductores p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .banner-conductores h2 {
+            font-size: 1.5rem;
+        }
     }

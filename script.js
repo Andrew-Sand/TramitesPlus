@@ -35,6 +35,10 @@ const selectoresUbicacion = document.querySelectorAll('.select-ubicacion');
 
 selectoresUbicacion.forEach((selector) => {
     selector.addEventListener('change', (e) => {
+        if (!e.target.value) {
+            mostrarError('Por favor seleccione una ubicación válida');
+            return;
+        }
         const modal = selector.closest('.modal-content');
         const ubicacion = e.target.value;
 
@@ -52,6 +56,14 @@ selectoresUbicacion.forEach((selector) => {
         }
     });
 });
+
+function mostrarError(mensaje) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = mensaje;
+    document.querySelector('.modal-content').prepend(errorDiv);
+    setTimeout(() => errorDiv.remove(), 3000);
+}
 
 // Añadir al final del archivo
 window.addEventListener('scroll', () => {
@@ -81,7 +93,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Añadir animación adicional al botón específico
-document.querySelector('.hero-content .cta-button').addEventListener('click', function() {
+document.querySelector('.hero-content .cta-button').addEventListener('click', function(e) {
+    // Cerrar menú si está abierto
+    if(nav.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Animación del botón
     this.style.transform = 'scale(0.95)';
     setTimeout(() => {
         this.style.transform = 'scale(1)';
@@ -124,5 +144,37 @@ document.addEventListener('click', (e) => {
         hamburger.classList.remove('active');
         nav.classList.remove('active');
         document.body.style.overflow = 'auto';
+    }
+});
+
+// Añadir gestión de modales
+const modalManager = {
+    open: function(modalId) {
+        const modal = document.getElementById(modalId);
+        if(modal) {
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+    },
+    close: function() {
+        const activeModal = document.querySelector('.modal.active');
+        if(activeModal) {
+            activeModal.classList.remove('active');
+            setTimeout(() => {
+                activeModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+    }
+};
+
+// Cerrar modal con tecla Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+        const activeModal = document.querySelector('.modal.active');
+        if(activeModal) {
+            modalManager.close();
+        }
     }
 });
