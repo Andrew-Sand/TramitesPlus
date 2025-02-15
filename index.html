@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TramiRápido - Gestión Moderna de Movilidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-car-side"></i>
+                TramitesPlus+
+            </div>
+            
+            <!-- Botón hamburguesa -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proceso">Proceso</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Gestión Moderna de Trámites Vehiculares</h1>
+            <p>Simplificamos tus procesos legales con tecnología innovadora</p>
+            <a href="#servicios" class="cta-button">Ir ahora</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="grid">
+            <!-- Tarjetas de servicios -->
+            <div class="card">
+                <i class="fas fa-file-contract card-icon"></i>
+                <h3>Traspaso de Propiedad</h3>
+                <p>Inscripción de la transferencia de la propiedad de un vehículo</p>
+                <button class="cta-button mini ver-requisitos" data-modal="modal1">Ver Requisitos</button>
+            </div>
+
+            <!-- Duplicado de Placas -->
+            <div class="card">
+                <i class="fas fa-car card-icon"></i>
+                <h3>Duplicado de Placas</h3>
+                <p>Duplicado de placa por pérdida o deterioro (Carro/Motocarro)</p>
+                <button class="cta-button mini ver-requisitos" data-modal="modal2">Ver Requisitos</button>
+            </div>
+
+            <!-- Duplicado de Placas -->
+            <div class="card">
+                <i class="fas fa-car card-icon"></i>
+                <h3>Duplicado de Placas</h3>
+                <p>Duplicado de placa por pérdida o deterioro (Carro/Motocarro)</p>
+                <button class="cta-button mini ver-requisitos" data-modal="modal3">Ver Requisitos</button>
+            </div>
+
+            <!-- Duplicado de Placas -->
+            <div class="card">
+                <i class="fas fa-car card-icon"></i>
+                <h3>Duplicado de Placas</h3>
+                <p>Duplicado de placa por pérdida o deterioro (Carro/Motocarro)</p>
+                <button class="cta-button mini ver-requisitos" data-modal="modal4">Ver Requisitos</button>
+            </div>
+
+            <!-- Más tarjetas... -->
+        </div>
+    </section>
+
+    <!-- Modales -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <h2>Requisitos para Traspaso de Propiedad</h2>
+            
+            <!-- Selector de ubicación -->
+            <div class="form-group">
+                <label for="ubicacion">Selecciona tu ubicación:</label>
+                <select id="ubicacion" class="select-ubicacion">
+                    <option value="">-- Selecciona --</option>
+                    <option value="madrid">Madrid</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="valencia">Valencia</option>
+                </select>
+            </div>
+
+            <!-- Requisitos dinámicos -->
+            <div class="requisitos-dinamicos">
+                <div id="requisitos-madrid" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Madrid</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                    </ul>
+                </div>
+
+                <div id="requisitos-barcelona" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Barcelona</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                        <li>Certificado de emisiones</li>
+                    </ul>
+                </div>
+
+                <div id="requisitos-valencia" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Valencia</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                        <li>Inspección técnica adicional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <h2>Requisitos para  Duplicado de Placas</h2>
+            
+            <!-- Selector de ubicación -->
+            <div class="form-group">
+                <label for="ubicacion">Selecciona tu ubicación:</label>
+                <select id="ubicacion" class="select-ubicacion">
+                    <option value="">-- Selecciona --</option>
+                    <option value="madrid">Madrid</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="valencia">Valencia</option>
+                </select>
+            </div>
+
+            <!-- Requisitos dinámicos -->
+            <div class="requisitos-dinamicos">
+                <div id="requisitos-madrid" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Madrid</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                    </ul>
+                </div>
+
+                <div id="requisitos-barcelona" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Barcelona</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                        <li>Certificado de emisiones</li>
+                    </ul>
+                </div>
+
+                <div id="requisitos-valencia" class="requisitos-ubicacion" style="display: none;">
+                    <h3>Requisitos para Valencia</h3>
+                    <ul>
+                        <li>Documento de identidad original y copia</li>
+                        <li>Tarjeta de propiedad del vehículo</li>
+                        <li>Certificado de tradición y libertad</li>
+                        <li>Pago de impuestos y tasas</li>
+                        <li>Inspección técnica adicional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> contacto@tramirapido.com</li>
+                    <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#">Licencias</a></li>
+                    <li><a href="#">Multas</a></li>
+                    <li><a href="#">Transferencias</a></li>
+                    <li><a href="#">Permisos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Términos de uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
