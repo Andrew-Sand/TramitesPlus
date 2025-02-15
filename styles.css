@@ -431,26 +431,33 @@
 
     @media (max-width: 768px) {
         :root {
-            --header-height: 80px; /* Altura reducida para móviles */
+            --header-height: 90px; /* Aumentamos la altura para mejor acomodo */
         }
         
+        header {
+            padding: 1rem 1.5rem; /* Reducimos padding lateral en móviles */
+        }
+
         .header-content {
-            flex-direction: column;  /* Cambiamos a columna */
-            align-items: flex-start; /* Alineación inicial */
-            gap: 1.5rem;            /* Espaciado aumentado */
-            padding: 0rem 2rem;   /* Padding lateral aumentado */
+            flex-direction: row; /* Mantenemos en fila para logo y hamburguesa */
+            align-items: center;
+            gap: 0;
+            height: 100%; /* Ocupa toda la altura del header */
+            padding: 0 1rem; /* Ajuste de padding interno */
         }
 
         .logo {
-            width: 100%;            /* Ocupa todo el ancho */
-            justify-content: space-between; /* Separa logo e icono */
-            font-size: 2rem;        /* Tamaño reducido para móviles */
+            font-size: 2rem;
+            width: auto; /* Ancho automático para mejor ajuste */
+            justify-content: flex-start; /* Alineación a la izquierda */
         }
 
         .hamburger {
-            width: 100%;            /* Ocupa todo el ancho */
-            align-items: flex-end;  /* Alinea a la derecha */
-            padding: 0.5rem 0;     /* Ajuste vertical */
+            display: flex;
+            margin-top: 0.5rem; /* Espaciado superior para alineación vertical */
+            padding: 0.5rem;
+            height: 100%; /* Ocupa toda la altura disponible */
+            align-items: center; /* Centrado vertical */
         }
 
         nav.active {
