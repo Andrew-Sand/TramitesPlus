@@ -7,6 +7,7 @@
         --text-light: #F0FDFA;       /* Blanco helado */
         --success: #10B981;          /* Verde esmeralda */
         --error: #EF4444;            /* Rojo terracota */
+        --header-height: 90px; /* Nueva variable CSS */
     }
 
     * {
@@ -37,6 +38,7 @@
         z-index: 10;
         color: var(--text-light);
         padding: 1.5rem 2.5rem;
+        height: var(--header-height); /* Nueva propiedad añadida */
         box-shadow: 
             0 4px 30px rgba(15, 23, 42, 0.15),
             0 0 0 1px rgba(255, 255, 255, 0.1) inset;
@@ -159,12 +161,12 @@
 
     .hero {
         padding: 18rem 2rem 8rem 2rem;
-        /*background: linear-gradient(45deg, var(--primary-color) 30%, var(--secondary-color) 100%);*/
         background-image: url(hero.webp);
-        background-size: cover; /* Asegura que la imagen cubra todo el área */
-        background-position: center; /* Centra la imagen */
+        background-size: cover;
+        background-position: center;
         position: relative;
         overflow: hidden;
+        margin-top: var(--header-height); /* Nueva propiedad añadida */
     }
 
     /* Añadir un filtro opaco */
@@ -428,28 +430,47 @@
     }
 
     @media (max-width: 768px) {
+        :root {
+            --header-height: 80px; /* Altura reducida para móviles */
+        }
+        
         .header-content {
-            flex-direction: row;
-            gap: 1rem;
-            padding: 1rem;
+            flex-direction: column;  /* Cambiamos a columna */
+            align-items: flex-start; /* Alineación inicial */
+            gap: 1.5rem;            /* Espaciado aumentado */
+            padding: 0rem 2rem;   /* Padding lateral aumentado */
+        }
+
+        .logo {
+            width: 100%;            /* Ocupa todo el ancho */
+            justify-content: space-between; /* Separa logo e icono */
+            font-size: 2rem;        /* Tamaño reducido para móviles */
+        }
+
+        .hamburger {
+            width: 100%;            /* Ocupa todo el ancho */
+            align-items: flex-end;  /* Alinea a la derecha */
+            padding: 0.5rem 0;     /* Ajuste vertical */
+        }
+
+        nav.active {
+            right: 0;  /* Posición corregida */
+            top: var(--header-height); /* Usamos la variable CSS */
         }
 
         nav {
             position: fixed;
-            top: 70px;
-            right: -100%;
-            width: 280px;
-            height: calc(100vh - 70px);
+            top: 0;
+            right: -100%;  /* Modificado de left a right */
+            width: 100%;
+            height: 100vh;  /* Altura completa */
             background: rgba(15, 23, 42, 0.98);
             flex-direction: column;
             padding: 2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(12px);
-            border-left: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        nav.active {
-            right: 0;
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
+            z-index: 999;
         }
 
         nav a {
@@ -492,7 +513,7 @@
         }
 
         .hero {
-            padding: 6rem 1.5rem;
+            padding: 6rem 1.5rem; /* Ajuste automático basado en header-height */
         }
 
         .hero h1 {
