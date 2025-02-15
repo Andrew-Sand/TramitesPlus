@@ -460,17 +460,12 @@
             align-items: center; /* Centrado vertical */
         }
 
-        nav.active {
-            right: 0;  /* Posición corregida */
-            top: var(--header-height); /* Usamos la variable CSS */
-        }
-
         nav {
             position: fixed;
             top: 0;
-            right: -100%;  /* Modificado de left a right */
+            right: -100%;
             width: 100%;
-            height: 100vh;  /* Altura completa */
+            height: 100vh;
             background: rgba(15, 23, 42, 0.98);
             flex-direction: column;
             padding: 2rem;
@@ -478,6 +473,17 @@
             backdrop-filter: blur(12px);
             border-top: 1px solid rgba(245, 158, 11, 0.2);
             z-index: 999;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        nav.active {
+            transform: translateX(0);
+            right: 0;
+            opacity: 1;
+            transition: 
+                transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.3s ease-out;
         }
 
         nav a {
